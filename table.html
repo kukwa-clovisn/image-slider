@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my table</title>
+    <style>
+        #table{
+            width: auto;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="table">
+        <table>
+            <tr id="top">
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                td*
+            </tr>
+        </table>
+    </div>
+    
+
+    <script>
+
+        let mountains = [
+            {
+                name: "kilamanjero", height: 5895, place: 'tanzania'
+            },
+            {
+                name: "kilamanjero", height: 5895, place: 'tanzania'
+            },
+            {
+                name: "kilamanjero", height: 5895, place: 'tanzania'
+            },
+            {
+                name: "kilamanjero", height: 5895, place: 'tanzania'
+            },
+            {
+                name: "kilamanjero", height: 5895, place: 'tanzania'
+            },
+            {
+                name: "kilamanjero", height: 5895, place: 'tanzania'
+            },
+            {
+                name: "kilamanjero", height: 5895, place: 'tanzania'
+            }
+        ]
+
+        let i = 0;
+
+        for( i = 0; i < mountains.length; i++) {
+            console.log(mountains[i]);
+        }
+        let table = document.getElementById('table');
+        // let display  = console.table(mountains);
+        // table.innerText = display;
+        // let work = display.toString();
+        // table.innerHTML = work;
+        table.innerHTML = mountains[0].name;
+
+        let th = document.getElementsByTagName('th');
+        let tr = document.getElementsByTagName('tr');
+        let td = document.getElementsByTagName('td');
+
+        let filterNames = mountains.map((mountains) => mountains.name);
+        console.log(filterNames);
+    </script>
+</body>
+</html>

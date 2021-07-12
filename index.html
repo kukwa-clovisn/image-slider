@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mini project 3/ image image_slide</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        
+        body{
+            background-image: url(./image/bg0.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 0;
+        }
+
+        .fixed{
+            width: 100vw;
+            height: 10vh;
+            padding: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fixed h1{
+            font-size: 25px;
+            font-family: 'Courier New', Courier, monospace,sans-serif;
+            position: relative;
+            left: -9vw;
+        }
+
+        .main{
+            width: 70vw;
+            height: 80vh;
+            background-color: inherit;
+            margin: auto;
+        }
+
+        .main img{
+            width: 700px;
+            height: 400px;
+            margin: auto;
+            box-shadow: 3px 3px 3px 1px black;
+            position: relative;
+            top: -7vh;
+        }
+
+        .buttons{
+            display: flex;
+            justify-content: space-evenly;
+            width: 20vw;
+            height: 20px;
+            background-color: inherit;
+            position: absolute;
+            bottom: 9vh;
+            left: 30vw;
+        }
+
+        .buttons button{
+            width: 30px;
+            height: 20px;
+            font-size: 20px;
+            color:white;
+            border-radius: 50%;
+            border: 1px solid white;
+            background-color: inherit;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .buttons #b{
+            background-color:red ;
+        }
+        .buttons #a {
+            background-color: green;
+        }
+        .buttons #c {
+            background-color: yellow;
+        }
+        .buttons #d {
+            background-color:gray ;
+        }
+
+        .loop button{
+            width: 80px;
+            height: 50px;
+            background-color: inherit;
+            position: absolute;
+            top: 40vh;
+            left: 80vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="fixed">
+        <h1>image slider/carousel.</h1>
+    </header>
+    <div class="main">
+        <img name="slide" alt="images image_slides">
+    </div>
+
+    <!-- creating the round buttons -->
+    <div class="buttons">
+             <button id="a" type="button" onclick="myFunctionA();"></button>
+            <button id="b" type="button" onclick="myFunctionB();"></button>
+             <button id="c" type="button" onclick="myFunctionC();"></button>
+             <button id="d" type="button" onclick="myFunctionD();"></button>
+    </div>
+
+    <!-- creating the start loop button -->
+    <div class="loop">
+         <button id="start" onclick="startLoop();">start loop</button>
+    </div>
+  
+
+
+
+    <script>
+        // // starting the images from image zero
+        let i = 0;
+        // // letting the images into an array
+        let images = [];
+        
+        // pushing the images into the image array
+        images[0] = "./image/bg1.jpg";
+        images[1] = "./image/bg03.jpg";
+        images[2] = "./image/bg04.jpg";
+        images[3] = "./image/bd5.jpg";
+        images[4] = "./image/bg7.jpg";
+        images[5] = "./image/bg8.jpg";
+
+        // // giving a function called image_slide that will cause the image transition.
+
+        function image_slide() {
+
+            document.slide.src = images[i];
+
+        // creationg a condition for looping throung the images
+
+            if(i < images.length - 1) {
+                i++;
+            } else{
+                i = 0; //we want to make sure that the images actually starts from the first image which is images[0]
+            }
+
+            setTimeout("image_slide()", 3000);
+            } 
+            
+            // coding the start loopp
+
+            // function startLoop() {
+            //     let start = document.getElementById('start');
+            //     start.addEventListener('click', event => {
+            //         if(event.mousedown == 1) {
+            //              setTimeout("image_slide()", 3000);
+            //         } else if(event.mousedown == 2) {
+            //             image_slide();
+            //         }
+            //     })
+               
+
+            // }
+
+            // // getting in stuffs for the buttons
+            // let a = document.getElementById('a');
+            // let b = document.getElementById('b');
+            // let c = document.getElementById('c');
+            // let d = document.getElementById('d');
+
+            // // writing out myFunction that when the button is clicked it is called.
+            // function myFunctionA() {
+            //     a.addEventListener('click', (e)=> {
+            //        setTimeout("image_slide()", 5000)
+            //     })
+               
+            //   a.sytle.backgroundColor = 'green';
+            // }
+
+            // function myFunctionB() {
+            //      b.addEventListener('click', (e)=> {
+            //        setTimeout("image_slide()", 2000)
+            //     })
+            //     b.sytle.backgroundColor = 'red';
+            // }
+
+            // function myFunctionC() {
+            //     c.addEventListener('click', (e)=> {
+            //        setTimeout("image_slide()", 1500)
+            //     })
+            //     c.sytle.backgroundColor = 'yellow';
+            // }
+
+            // function myFunctionD() {
+                  
+            //     d.addEventListener('click', (e)=> {
+            //        setTimeout("image_slide()", 500)
+            //     })
+            //     d.sytle.backgroundColor = 'white';
+            // }
+
+        // we want the images to all load before the page actually begins
+        window.onload = image_slide();
+    </script>
+</body>
+</html>
